@@ -1,0 +1,317 @@
+<html>
+<head>
+<title>Assignment_1</title>
+<!-- CSS -->
+<style type="text/css">
+	#org_table{
+		margin: 10px;
+	}
+		
+	table {
+		border-collapse:collapse;
+		border:20px solid #7f7f7f;
+	}
+
+	td{
+		border: 1px solid #7f7f7f;
+		width: auto;
+		height: auto;
+		text-align: center;
+	}
+	
+	tr:hover{
+		cursor: pointer;
+		background: yellow;
+	}
+</style>
+
+<!-- Data -->
+<script>
+
+// Don't copy this to any other places in this file. You can just use the "organizations" variable to do your assignment. 
+var organizations = [
+	 {
+        "Region": "East Asia & Pacific",
+        "Country": "New Zealand",
+        "Country Income Level": "High income",
+        "Organization Name": "200 Square",
+        "Organization Type": "For-profit",
+        "Sectors": "Housing, construction & real estate",
+        "Description": "200 Square is an online real estate agent in New Zealand.",        
+        "City": "Wellington",
+        "State/Region": "Wellington",
+        "Founding Year": 2010,
+        "Size": "1 to 10",
+        "Type of Data Used": "Housing, Education",
+        "profileID": "731"
+    },
+    {
+        "Region": "Europe & Central Asia",
+        "Country": "United Kingdom",
+        "Country Income Level": "High income",
+        "Organization Name": "21c Consultancy",
+        "Organization Type": "For-profit",
+        "Sectors": "IT and geospatial",
+        "Description": "21c is ICT innovation consultancy which advises international actors, institutions and governments around the world on technological trends which can affect the way they deliver services.",        
+        "City": "London",
+        "State/Region": "",
+        "Founding Year": 2015,
+        "Size": "1 to 10",
+        "Type of Data Used": "",
+        "profileID": "1694"
+    },
+    {
+        "Region": "Europe & Central Asia",
+        "Country": "Russian Federation",
+        "Country Income Level": "High income",
+        "Organization Name": "2GIS",
+        "Organization Type": "For-profit",
+        "Sectors": "IT and geospatial",
+        "Description": "2GIS is a city information service combined with a map. ",        
+        "City": "Novosibirsk",
+        "State/Region": "Novosibirsk Oblast",
+        "Founding Year": 1999,
+        "Size": "1000+",
+        "Type of Data Used": "Transportation, Geospatial, Business",
+        "profileID": "1025"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "2nd City Zoning",
+        "Organization Type": "Nonprofit",
+        "Sectors": "Housing, construction & real estate",
+        "Description": "An Open City App, 2nd City Zoning is an interactive map that lets you find out how your building is zoned, learn where to locate your business and explore zoning patterns throughout the city.",        
+        "City": "Chicago",
+        "State/Region": "Illinois",
+        "Founding Year": 2013,
+        "Size": "1 to 10",
+        "Type of Data Used": "Housing",
+        "profileID": "1693"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "3 Round Stones Inc",
+        "Organization Type": "For-profit",
+        "Sectors": "IT and geospatial",
+        "Description": "3 Round Stones' Open Source platform is used by the Fortune 2000 and US Government Agencies to collect, publish and reuse data, both public and proprietary.",
+        "City": "Arlington",
+        "State/Region": "Virginia",
+        "Founding Year": 2010,
+        "Size": "1 to 10",
+        "Type of Data Used": "Weather, Science and research, Health/healthcare, Geospatial, Environment, Energy, Demographic and social, Business",
+        "profileID": "580"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "360 Yield Center",
+        "Organization Type": "For-profit",
+        "Sectors": "Agriculture",
+        "Description": "Taking a 360-degree view of key yield-limiting variables, 360 Yield Center develops strategies for better-performing crops and better on-farm profits.",        
+        "City": "Morton",
+        "State/Region": "Illinois",
+        "Founding Year": 2014,
+        "Size": "51 to 200",
+        "Type of Data Used": "Agriculture, Environment, Weather",
+        "profileID": "1692"
+    },
+    {
+        "Region": "Europe & Central Asia",
+        "Country": "Denmark",
+        "Country Income Level": "High income",
+        "Organization Name": "3Strikes - City Stories",
+        "Organization Type": "For-profit",
+        "Sectors": "Arts, culture and tourism",
+        "Description": "City Stories provides a platform that allows users to explore local stories and simultaneously contribute their own.",
+        "City": "Aarhus",
+        "State/Region": "Central Denmark Region",
+        "Founding Year": 2015,
+        "Size": "1 to 10",
+        "Type of Data Used": "Arts and culture",
+        "profileID": "2278"
+    },
+    {
+        "Region": "Europe & Central Asia",
+        "Country": "Finland",
+        "Country Income Level": "High income",
+        "Organization Name": "3Tier (Europe) ",
+        "Organization Type": "For-profit",
+        "Sectors": "Energy and climate",
+        "Description": "3TIER is a global environmental and industrial measurement company providing weather-driven renewable energy risk assessment and forecasting for wind, solar, and hydro power projects.",        
+        "City": "Helsinki",
+        "State/Region": "Uusimaa",
+        "Founding Year": 2012,
+        "Size": "11 to 50",
+        "Type of Data Used": "Other, Environment",
+        "profileID": "952"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "5PSolutions",
+        "Organization Type": "For-profit",
+        "Sectors": "IT and geospatial",
+        "Description": "5PSolutions are artisans of mobile platforms.",       
+        "City": "Fairfax",
+        "State/Region": "Virginia",
+        "Founding Year": 2007,
+        "Size": "1 to 10",
+        "Type of Data Used": "Environment",
+        "profileID": "534"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "AAA National",
+        "Organization Type": "Other",
+        "Sectors": "Transportation and logistics",
+        "Description": "AAA provides services such as travel, automotive, insurance, financial, and discounts.",        
+        "City": "Irving",
+        "State/Region": "Texas",
+        "Founding Year": 1902,
+        "Size": "201 to 1000",
+        "Type of Data Used": "Transportation",
+        "profileID": "1691"
+    },
+    {
+        "Region": "North America",
+        "Country": "United States",
+        "Country Income Level": "High income",
+        "Organization Name": "AAASHTO",
+        "Organization Type": "Other",
+        "Sectors": "Transportation and logistics",
+        "Description": "AASHTO works to educate the public and key decision makers about the critical role that transportation plays in securing a good quality of life and sound economy. AASHTO serves as a liaison between state departments of transportation and the Federal government.",
+        "City": "Washington",
+        "State/Region": "DC",
+        "Founding Year": 1913,
+        "Size": "51 to 200",
+        "Type of Data Used": "Transportation",
+        "profileID": "1690"
+    },
+    {
+        "Region": "Latin America & Caribbean",
+        "Country": "Chile",
+        "Country Income Level": "High income",
+        "Organization Name": "ABRELATAM",
+        "Organization Type": "Nonprofit",
+        "Sectors": "Governance",
+        "Description": "ABRELATAM is an conference that seeks to accelerate the process of opening information through Open Data transparency and promote the Latin America.",        
+        "City": "Santiago",
+        "State/Region": "",
+        "Founding Year": 2015,
+        "Size": "",
+        "Type of Data Used": "",
+        "profileID": "1687"
+    }
+	
+];
+</script>
+
+</head>
+
+<body onclick = "hide(event)">
+<!-- Feel free to add empty tags. Data shouldn't be here. -->
+	<div id="org_table"></div>
+
+<script>
+/*************************************************************************
+* these are the reference code that might be helpful for the project.	 *
+**************************************************************************
+* outputs the first item of the organizations array. Just for testing.	 *
+* console.log(organizations[0]);										 *
+* console.log(organizations.length); 									 *
+*																		 *
+* return keys in the array												 *
+* console.log(Object.keys(organizations[0]));							 *
+*																		 *
+* return values in the array											 *
+* console.log(Object.values(organizations[0]));							 *
+*																		 *
+* get the value of the specific key									 	 *
+* var value = organizations[0]["Country"];								 *
+* console.log(value);													 *
+*************************************************************************/
+
+// calculate total number of organizations:12
+// number of uniqe countries:5
+// number of high-income countries:9
+// number of organizations founded after 2000:
+
+var numOrgs = 0;
+var uniqueCountries = [];
+var highIncome = 0;
+var orgs = 0;
+var num = 0;
+		
+function createTable(){
+	var org_table = document.getElementById('org_table');
+	var table = document.createElement("table");
+	
+	for(var i = 0; i < organizations.length; i++){
+		console.log();
+		if(!(uniqueCountries.includes(organizations[i]["Country"]))){
+			uniqueCountries.push(organizations[i]["Country"]);
+		}
+		if(organizations[i]["Country Income Level"] == "High income"){
+			highIncome++;
+		}
+		if(organizations[i]["Founding Year"] > 2000){
+			orgs++;
+		}
+	}
+	
+	//create rows
+	for(var row = 0; row < organizations.length + 1; row++){
+		r = document.createElement("tr");
+		// increment the number of organizations(number of rows) first row is header so dont count
+		if(row != 0){
+			numOrgs++;
+		}
+
+		for(var col = 0; col < 12; col++){
+			var c = document.createElement("td");
+			if(row == 0){
+				r.style.backgroundColor = "#000000";
+				r.style.color = "#FFFFFF";
+				r.style.fontWeight = "bold";
+				var data = document.createTextNode(Object.keys(organizations[row])[col]);
+			}
+			else{
+				var data = document.createTextNode(Object.values(organizations[row - 1])[col]);
+			}
+			c.appendChild(data);
+			r.appendChild(c);
+		}
+	table.appendChild(r);
+	}
+org_table.appendChild(table);
+document.write("Total number of organizations: " + numOrgs + "<br>");
+document.write("Number of unique countries: " + uniqueCountries.length + "<br>");
+document.write("number of high income countries: " + highIncome + "<br>");
+document.write("number of organizations founded after 2000: " + orgs + "<br>");
+console.log(numOrgs);
+//var test = document.getElementByTagName("table");
+}
+
+// if the country name is not included in the uniqueCountries array, then add it to the array.
+function hide(e){
+	if(e.target.tagName == "TD"){
+		//console.log(e.target.parentNode);
+		e.target.parentNode.innerHTML = "";
+		numOrgs--;
+		console.log(numOrgs);
+	}
+}
+
+window.onload = createTable();
+</script>
+
+</body>
+</html>
